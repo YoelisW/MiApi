@@ -1,0 +1,421 @@
+/* ==========================================
+   PALETA DE COLORES NATIVA SODA
+   ========================================== */
+:root {
+    --verde-oscuro: #203500;
+    --verde-suave: #96AC60;
+    --verde-claro: #D9EF9F;
+    --rojo-intenso: #AE090F;
+    --rojo-brillante: #F3161E;
+    --rojo-vino: #7A1F22;
+    --blanco: #FFFFFF;
+    
+    /* Colores base para fondos y textos */
+    --fondo-crema: #f8f6f0; /* Fondo general similar a la imagen */
+    --texto-oscuro: #2b2b2b;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Texto secundario */
+    margin: 0;
+    padding: 0;
+    color: var(--texto-oscuro);
+    background-color: var(--fondo-crema);
+    line-height: 1.6;
+}
+
+/* Tipografía de Títulos (Tipo Serif elegante) */
+h1, h2, h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: var(--verde-oscuro);
+    margin-top: 0;
+}
+
+/* ==========================================
+   ENCABEZADO Y NAVEGACIÓN
+   ========================================== */
+header {
+    background-color: var(--verde-oscuro);
+    color: var(--blanco);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-family: 'Georgia', serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.logo-sub {
+    font-family: 'Arial', sans-serif;
+    font-size: 0.7rem;
+    font-weight: normal;
+    letter-spacing: 2px;
+    display: block;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--verde-claro);
+}
+
+/* ==========================================
+   SECCIONES Y FONDOS
+   ========================================== */
+section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px 20px;
+}
+
+.hero {
+    background-color: var(--verde-claro);
+    border-radius: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+/* ==========================================
+   BOTONES PRINCIPALES (CTA)
+   ========================================== */
+.btn {
+    display: inline-block;
+    background-color: var(--rojo-intenso);
+    color: var(--blanco);
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background-color: var(--rojo-brillante);
+}
+
+/* ==========================================
+   PRODUCTOS (GRID)
+   ========================================== */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--blanco);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin: 15px 0 5px 0;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.stock-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--verde-suave);
+    color: var(--blanco);
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 20px;
+}
+.stock-bajo { background: var(--rojo-vino); }
+
+/* ==========================================
+   BANNER DE CARACTERÍSTICAS
+   ========================================== */
+.features-banner {
+    background-color: var(--verde-oscuro);
+    color: var(--blanco);
+    padding: 40px 20px;
+    margin: 0;
+    max-width: 100%;
+}
+
+.features-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    text-align: center;
+    gap: 20px;
+}
+
+.features-grid h4 {
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+/* ==========================================
+   CARRITO Y ADMIN (ESTRUCTURA MANTENIDA)
+   ========================================== */
+.item-carrito { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; padding: 10px 0; }
+.btn-eliminar { background-color: var(--rojo-vino); color: white; border: none; padding: 5px 10px; cursor: pointer; }
+.admin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.admin-card { background: var(--blanco); padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.admin-card input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; box-sizing: border-box;}
+.pedido-item { background: var(--fondo-crema); padding: 10px; border-left: 4px solid var(--verde-suave); margin-bottom: 10px; }
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(32,53,0,0.8); }
+.modal-content { background-color: var(--blanco); margin: 10% auto; padding: 40px; width: 90%; max-width: 400px; text-align: center; }
+.close { color: var(--rojo-vino); float: right; font-size: 28px; cursor: pointer; }
+
+footer {
+    background-color: var(--verde-oscuro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+
+/* ==========================================
+   CARRUSEL DE OFERTAS
+   ========================================== */
+.carrusel-ofertas {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0;
+    scroll-snap-type: x mandatory;
+}
+
+.carrusel-ofertas::-webkit-scrollbar {
+    height: 8px;
+}
+.carrusel-ofertas::-webkit-scrollbar-track {
+    background: var(--verde-oscuro); 
+}
+.carrusel-ofertas::-webkit-scrollbar-thumb {
+    background: var(--verde-claro); 
+    border-radius: 4px;
+}
+
+.oferta-card {
+    min-width: 260px;
+    background: var(--blanco);
+    color: var(--texto-oscuro);
+    padding: 20px;
+    border-radius: 8px;
+    scroll-snap-align: start;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.oferta-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.oferta-card h3 { color: var(--rojo-intenso); font-size: 1.1rem; }
+.oferta-card p { font-size: 0.85rem; }
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /
+}
+
+
+.logo-box {
+    width: 45px;
+    height: 45px;
+    background-color: var(--verde-claro); 
+    border-radius: 8px;
+    object-fit: contain; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 550px;
+    object-fit: contain;
+    filter: drop-shadow(0px 15px 15px rgba(0,0,0,0.15));
+}
+
+
+/* ==========================================
+   FOOTER Y REDES SOCIALES
+   ========================================== */
+footer {
+    background-color: var(--verde-oscuro);
+    color: var(--blanco);
+    padding: 40px 20px 20px 20px;
+    font-size: 0.9rem;
+    margin-top: 40px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap; /* Permite que colapse en celulares */
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 280px; /* Evita que las columnas sean muy delgadas en pantallas pequeñas */
+}
+
+/* Estilos de los enlaces de contacto */
+.social-links a {
+    display: block;
+    color: var(--blanco);
+    text-decoration: none;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--verde-claro);
+    transform: translateX(5px); /* Pequeño efecto de movimiento al pasar el mouse */
+}
+
+/* Acordeón de Nosotros */
+.footer-accordion {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 15px;
+    transition: background 0.3s;
+}
+
+.footer-accordion:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.footer-accordion summary {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    outline: none;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Oculta la flecha por defecto del navegador y le pone una personalizada */
+.footer-accordion summary::-webkit-details-marker {
+    display: none;
+}
+.footer-accordion summary::after {
+    content: '▼';
+    font-size: 0.8rem;
+    color: var(--verde-claro);
+}
+.footer-accordion[open] summary::after {
+    content: '▲';
+}
+
+.accordion-content {
+    margin-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.accordion-content p {
+    margin-bottom: 15px;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 30px;
+}

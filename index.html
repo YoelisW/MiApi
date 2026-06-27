@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nativa Soda - Sabor real, sin azúcar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="img/Logo.png" alt="Logo Nativa" class="logo-box">
+                
+                <div class="logo">
+                    NativaSoda
+                    <span class="logo-sub">ARTESANAL SIN AZÚCAR</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio" onclick="mostrarVista('cliente')">Inicio</a></li>
+                <li><a href="#productos" onclick="mostrarVista('cliente')">Productos</a></li>
+                <li id="nav-mis-pedidos" style="display: none;"><a href="#" onclick="abrirModalMisPedidos()">📦 Mis Pedidos</a></li>
+                <li id="nav-login"><a href="#" onclick="abrirModalLogin()">👤 Ingresar</a></li>
+                <li id="nav-logout" style="display: none;"><a href="#" onclick="cerrarSesion()">Salir</a></li>
+                <li><a href="#carrito-seccion">🛒 (<span id="contador-carrito">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="vista-cliente">
+        
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Sabor real,<br>sin azúcar.</h1>
+                    <p>Sodas artesanales elaboradas con ingredientes naturales y endulzadas con lo mejor de la naturaleza.</p>
+                    <a href="#productos" class="btn">Comprar Ahora →</a>
+                </div>
+                <div class="hero-image">
+                    <img src="img/ImagenPrincipal.jpeg" alt="Botella Nativa Soda Frutos Rojos">
+                </div>
+                </div>
+            </div>
+        </section>
+
+            <section id="promociones" style="background: var(--verde-oscuro); color: var(--blanco); text-align: center;">
+            <h2 style="color: var(--verde-claro); border-bottom: none;">Ofertas Especiales</h2>
+            <div class="carrusel-ofertas">
+                <div class="oferta-card">
+                    <img src="img/comboahorro.jpeg" alt="Combo Ahorro">
+                    <h3>Combo Ahorro</h3>
+                    <p>Arma tu 6-pack de sabores a elección con 15% de descuento.</p>
+                    <button class="btn" style="width: 100%;" onclick="abrirModalCombo()">Armar Combo</button>
+                </div>
+                <div class="oferta-card">
+                    <img src="img/3X2.jpeg" alt="3x2 Jengibre">
+                    <h3>3x2 Jengibre</h3>
+                    <p>Lleva 3 sodas de Jengibre y paga solo 2.</p>
+                    <button class="btn" style="width: 100%;" onclick="aplicarOfertaRapida('jengibre')">Agregar al Carrito</button>
+                </div>
+                <div class="oferta-card">
+                    <img src="img/Degustacion.jpeg" alt="Pack Degustación">
+                    <h3>Pack Degustación</h3>
+                    <p>Descubre todos nuestros sabores. 1 botella de cada uno.</p>
+                    <button class="btn" style="width: 100%;" onclick="aplicarOfertaRapida('degustacion')">Llevar Pack</button>
+                </div>
+                <div class="oferta-card">
+                    <img src="img/Primeracompragratis.jpeg" alt="Primera Compra">
+                    <h3>20% Primera Compra</h3>
+                    <p>Regístrate y obtén 20% off en tu primera botella.</p>
+                    <button class="btn" style="width: 100%;" onclick="abrirModalLogin()">Registrarme</button>
+                </div>
+                <div class="oferta-card">
+                    <img src="img/comprador frecuente.jpeg" alt="Fidelidad">
+                    <h3>Comprador Frecuente</h3>
+                    <p>Compra 8 botellas y obtén 10% de descuento en tu próximo pedido.</p>
+                </div>
+                <div class="oferta-card">
+                    <img src="img/enviogratis.jpeg" alt="Envio Gratis">
+                    <h3>Envío Gratis</h3>
+                    <p>Garantizado en la compra de 10 botellas o más.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="productos">
+            <h2 class="section-title">Nuestras sodas</h2>
+            <div id="contenedor-productos" class="grid-container"></div>
+        </section>
+
+        <div class="features-banner">
+            <div class="features-grid">
+                <div>
+                    <h4 style="color: var(--verde-claro);">🌱</h4>
+                    <h4>Ingredientes Naturales</h4>
+                </div>
+                <div>
+                    <h4 style="color: var(--verde-claro);">🚫</h4>
+                    <h4>Sin Azúcar Añadida</h4>
+                </div>
+                <div>
+                    <h4 style="color: var(--verde-claro);">📉</h4>
+                    <h4>Bajas en Calorías</h4>
+                </div>
+                <div>
+                    <h4 style="color: var(--verde-claro);">🤲</h4>
+                    <h4>Hechas Artesanalmente</h4>
+                </div>
+            </div>
+        </div>
+
+        <section id="carrito-seccion" style="background: var(--blanco); margin-top: 60px; padding: 40px; border-radius: 8px;">
+            <h2 style="border-bottom: 2px solid var(--verde-suave); padding-bottom: 10px;">Tu Carrito de Compras</h2>
+            <div id="contenedor-carrito"><p>Tu carrito está vacío.</p></div>
+            <div class="resumen-pago" id="resumen-pago" style="display: none; margin-top: 20px;">
+                <h3 style="color: var(--rojo-intenso);">Total: C$ <span id="total-carrito">0.00</span></h3>
+                <button class="btn" style="width: 100%; margin-top: 15px;" onclick="intentarPagar()">Finalizar Compra Segura</button>
+            </div>
+        </section>
+    </div>
+
+
+
+<div id="modal-login" class="modal">
+        <div class="modal-content" style="max-width: 350px; padding: 30px;">
+            <span class="close" onclick="cerrarModalLogin()">&times;</span>
+            
+            <div style="display: flex; margin-bottom: 20px; border-bottom: 2px solid #eee;">
+                <button id="btn-tab-login" onclick="cambiarTabLogin('login')" style="flex: 1; padding: 10px; background: none; border: none; font-weight: bold; color: var(--verde-oscuro); border-bottom: 3px solid var(--verde-oscuro); cursor: pointer; transition: 0.3s;">Entrar</button>
+                <button id="btn-tab-registro" onclick="cambiarTabLogin('registro')" style="flex: 1; padding: 10px; background: none; border: none; font-weight: normal; color: #999; border-bottom: 3px solid transparent; cursor: pointer; transition: 0.3s;">Crear Cuenta</button>
+            </div>
+
+            <div id="form-login-seccion">
+                <h2 style="color: var(--verde-oscuro); margin-top: 0;">¡Hola de nuevo!</h2>
+                <input type="text" id="login-user" placeholder="Usuario" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; box-sizing: border-box; border-radius: 4px;">
+                <input type="password" id="login-pass" placeholder="Contraseña" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; box-sizing: border-box; border-radius: 4px;">
+                <button class="btn" style="width: 100%; margin-top: 15px;" onclick="procesarSoloLogin()">Iniciar Sesión</button>
+            </div>
+
+            <div id="form-registro-seccion" style="display: none;">
+                <h2 style="color: var(--verde-oscuro); margin-top: 0;">Únete a Nativa</h2>
+                <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Obtén un <strong>20% de descuento</strong> automático en tu primera botella al registrarte hoy.</p>
+                <input type="text" id="reg-user" placeholder="Elige un nombre de usuario" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; box-sizing: border-box; border-radius: 4px;">
+                <input type="password" id="reg-pass" placeholder="Crea una contraseña" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; box-sizing: border-box; border-radius: 4px;">
+                <button class="btn" style="width: 100%; margin-top: 15px; background-color: var(--verde-suave);" onclick="procesarSoloRegistro()">Registrarme y Ganar 20%</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-combo" class="modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <span class="close" onclick="document.getElementById('modal-combo').style.display='none'">&times;</span>
+            <h2 style="color: var(--verde-oscuro);">Arma tu Combo (6 Botellas)</h2>
+            <p>Selecciona los sabores. Llevas: <strong id="combo-contador">0</strong>/6</p>
+            <div id="contenedor-opciones-combo" style="text-align: left; margin-bottom: 20px;"></div>
+            <button class="btn" id="btn-guardar-combo" style="width: 100%; background-color: #ccc;" disabled onclick="agregarComboAlCarrito()">Añadir Combo al Carrito (-15%)</button>
+        </div>
+    </div>
+
+    <!-- MODAL DE EDICIÓN DE PRODUCTO -->
+    <div id="modal-editar" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModalEditar()">&times;</span>
+            <h2 style="color: var(--verde-oscuro);">Editar Producto</h2>
+            <form id="form-editar-producto" onsubmit="guardarEdicion(event)">
+            <input type="hidden" id="edit-id">
+            <input type="text" id="edit-nombre" placeholder="Nombre de la soda" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
+            
+            <!-- NUEVO: Botón para editar imagen -->
+            <label style="font-size: 0.8rem; color: var(--verde-oscuro);">Cambiar imagen (opcional):</label>
+            <input type="file" id="edit-img" accept="image/*" style="width: 100%; margin-bottom: 10px;">
+            
+            <input type="number" id="edit-precio" placeholder="Precio (C$)" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
+            <input type="number" id="edit-stock" placeholder="Cantidad en stock" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
+            <input type="text" id="edit-desc" placeholder="Descripción breve" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
+            
+            <button type="submit" class="btn" style="width: 100%;">Actualizar Producto</button>
+        </form>
+        </div>
+    </div>
+
+    <div id="modal-mis-pedidos" class="modal">
+        <div class="modal-content" style="max-width: 600px; text-align: left; padding: 30px;">
+            <span class="close" onclick="document.getElementById('modal-mis-pedidos').style.display='none'">&times;</span>
+            <h2 style="color: var(--verde-oscuro); text-align: center; border-bottom: 2px solid var(--verde-claro); padding-bottom: 10px;">Mi Historial de Compras</h2>
+            
+            <div id="contenedor-mis-pedidos" style="max-height: 400px; overflow-y: auto; margin-top: 20px;">
+                </div>
+        </div>
+    </div>
+<footer>
+        <div class="footer-container">
+            
+            <div class="footer-section">
+                <h3 style="color: var(--verde-claro); margin-bottom: 15px;">Conecta con nosotros</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank">📱 WhatsApp: +505 8888 8888</a>
+                    <a href="#" target="_blank">📸 Instagram: @nativasoda</a>
+                    <a href="#" target="_blank">📘 Facebook: Nativa Soda</a>
+                    <a href="mailto:nativacraftsoda@gmail.com">✉️ NativaCraftSoda@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3 style="color: var(--verde-claro); margin-bottom: 15px;">Nuestra Empresa</h3>
+                
+                <details class="footer-accordion">
+                    <summary>Sobre Nativa Soda (Nosotros)</summary>
+                    <div class="accordion-content">
+                        <p><strong>¿Quiénes somos?</strong><br>
+                        Somos una iniciativa artesanal nacida en Managua, apasionada por crear bebidas que respeten tu cuerpo y el medio ambiente. Creemos que el sabor auténtico no necesita azúcar añadida ni químicos artificiales.</p>
+                        
+                        <p><strong>Nuestra Misión</strong><br>
+                        Ofrecer una experiencia refrescante y deliciosa mediante sodas 100% naturales, empoderando a nuestros clientes a tomar decisiones más saludables sin sacrificar el placer de una buena bebida.</p>
+                        
+                        <p><strong>Nuestra Visión</strong><br>
+                        Convertirnos en la marca líder de bebidas artesanales y saludables en el mercado local, demostrando que es posible equilibrar el sabor premium con el bienestar integral.</p>
+                    </div>
+                </details>
+            </div>
+            
+        </div>
+
+        <div class="footer-bottom">
+            <p style="font-weight: bold; letter-spacing: 2px;">NATURAL • ARTESANAL • SIN AZÚCAR • DELICIOSA</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; color: var(--verde-claro);">© 2026 Nativa Soda. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Nativa Soda</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-color: var(--fondo-crema);">
+
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="img/logo.png" alt="Logo Nativa" class="logo-box">
+                <div class="logo">SODA <span class="logo-sub">PANEL ADMIN</span></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="cerrarSesion()">Salir (Cerrar Sesión)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="vista-admin" style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
+        <section>
+            <h2 style="border-bottom: 2px solid var(--verde-suave); padding-bottom: 10px; color: var(--verde-oscuro);">Panel de Control</h2>
+            <div class="admin-grid">
+                
+                <div class="admin-card">
+                    <h3 style="color: var(--verde-oscuro);">Agregar Nuevo Producto</h3>
+                    <form id="form-nuevo-producto" onsubmit="agregarProductoMenu(event)">
+                        <input type="text" id="prod-nombre" placeholder="Nombre de la soda" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; box-sizing: border-box;">
+                        
+                        <label style="font-size: 0.8rem; color: var(--verde-oscuro);">Imagen del producto:</label>
+                        <input type="file" id="prod-img" accept="image/*" style="width: 100%; margin-bottom: 10px;">
+                        
+                        <input type="number" id="prod-precio" placeholder="Precio (C$)" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; box-sizing: border-box;">
+                        <input type="number" id="prod-stock" placeholder="Cantidad en stock" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; box-sizing: border-box;">
+                        <input type="text" id="prod-desc" placeholder="Descripción breve" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; box-sizing: border-box;">
+                        <button type="submit" class="btn" style="width: 100%;">Guardar Producto</button>
+                    </form>
+                </div>
+
+                <div class="admin-card">
+                    <h3 style="color: var(--verde-oscuro);">Gestión de Inventario</h3>
+                    <div id="contenedor-inventario" style="max-height: 400px; overflow-y: auto; padding-right: 10px;"></div>
+                </div>
+            </div>
+
+            <div class="admin-card" style="margin-top: 20px;">
+                <h3 style="color: var(--verde-oscuro);">Gestión de Pedidos</h3>
+                <div id="contenedor-pedidos"></div>
+            </div>
+        </section>
+    </div>
+
+    <div id="modal-editar" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModalEditar()">&times;</span>
+            <h2 style="color: var(--verde-oscuro);">Editar Producto</h2>
+            <form id="form-editar-producto" onsubmit="guardarEdicion(event)">
+                <input type="hidden" id="edit-id">
+                <input type="text" id="edit-nombre" placeholder="Nombre de la soda" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; box-sizing: border-box;">
+                <label style="font-size: 0.8rem; color: var(--verde-oscuro);">Cambiar imagen (opcional):</label>
+                <input type="file" id="edit-img" accept="image/*" style="width: 100%; margin-bottom: 10px;">
+                <input type="number" id="edit-precio" placeholder="Precio (C$)" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; box-sizing: border-box;">
+                <input type="number" id="edit-stock" placeholder="Cantidad en stock" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; box-sizing: border-box;">
+                <input type="text" id="edit-desc" placeholder="Descripción breve" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; box-sizing: border-box;">
+                <button type="submit" class="btn" style="width: 100%;">Actualizar Producto</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
