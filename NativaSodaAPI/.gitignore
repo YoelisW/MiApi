@@ -1,0 +1,19 @@
+# Build
+bin/
+obj/
+
+# Visual Studio
+.vs/
+.vscode/
+
+# User files
+*.user
+*.suo
+
+# SQLite
+*.db
+*.db-shm
+*.db-wal
+
+# Logs
+*.log
